@@ -1,4 +1,4 @@
-from lib.game_api import GameAPI
+from serpent.game_api import GameAPI
 
 
 class OLDTVAPI(GameAPI):
@@ -9,7 +9,7 @@ class OLDTVAPI(GameAPI):
     def my_api_function(self):
         pass
 
-    class MainMenu:
+    class MyAPINamespace:
 
         @classmethod
         def my_namespaced_api_function(cls):

@@ -1,18 +1,20 @@
-from lib.game import Game
+from serpent.game import Game
 
 from .api.api import OLDTVAPI
 
-from lib.utilities import Singleton
+from serpent.utilities import Singleton
 
 
 class SerpentOLDTVGame(Game, metaclass=Singleton):
 
     def __init__(self, **kwargs):
-        kwargs["platform"] = "executable"
+        kwargs["platform"] = "steam"
 
         kwargs["window_name"] = "V"
 
-        kwargs["executable_path"] = "oldtv"
+        kwargs["app_id"] = "643270"
+        kwargs["app_args"] = None
+
 
         super().__init__(**kwargs)
 
@@ -22,7 +24,26 @@ class SerpentOLDTVGame(Game, metaclass=Singleton):
     @property
     def screen_regions(self):
         regions = {
-            "MAIN_MENU": (0,0,0)
+            "SAMPLE_REGION": (0, 0, 0, 0)
         }
 
         return regions
+
+    @property
+    def ocr_presets(self):
+        presets = {
+            "SAMPLE_PRESET": {
+                "extract": {
+                    "gradient_size": 1,
+                    "closing_size": 1
+                },
+                "perform": {
+                    "scale": 10,
+                    "order": 1,
+                    "horizontal_closing": 1,
+                    "vertical_closing": 1
+                }
+            }
+        }
+
+        return presets
