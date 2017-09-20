@@ -24,7 +24,11 @@ class SerpentOLDTVGame(Game, metaclass=Singleton):
     @property
     def screen_regions(self):
         regions = {
-            "SAMPLE_REGION": (0, 0, 0, 0)
+            # "SCREEN_REGION": (y1, x1, y2, x2)
+            "MAIN_MENU_OPTIONS": (462, 138, 518, 194),
+            "MAIN_MENU_STATS": (462, 828, 518, 884),
+            "MAIN_MENU_MAIL": (71, 822, 125, 896),
+            "MAIN_MENU_THUNDER": (66, 136, 129, 199)
         }
 
         return regions
